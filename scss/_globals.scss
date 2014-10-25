@@ -1,0 +1,71 @@
+/* 
+Globals
+	Sass variable, mixins, plugins, etc. that are used throughout the entore site.
+*/
+
+// Function for converting a px based font-size to rem.
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+// Mixin that will include the fall back px declaration as well as the calculated rem value.
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cabin Bold'), local('Cabin-Bold'), url(http://fonts.gstatic.com/s/cabin/v7/haOjnueK8Or1ztuuRtr8dnYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Merriweather Light'), local('Merriweather-Light'), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6nmB7wJ9CoPCp9n30ZBThZ1I.woff) format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Merriweather Bold'), local('Merriweather-Bold'), url(http://fonts.gstatic.com/s/merriweather/v7/ZvcMqxEwPfh2qDWBPxn6nhAPw1J91axKNXP_-QX9CC8.woff) format('woff');
+}
+
+@mixin body-font-regular {
+    font-family: 'Merriweather', georgia, serif ;
+    font-style: normal;
+    font-weight: 300;
+    
+}
+
+@mixin body-font-bold {
+    font-family: 'Merriweather', georgia, serif ;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@mixin headline-font {
+    font-family: 'Cabin', helvetica, verdana, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+// Site variable
+$color: #242424;
+$background-color: #9bade8;
+$background-color-alternate: #e27a66;
+
+@keyframes colorchange-background {
+    0% { background-color: $background-color;}
+    50% { background-color: $background-color-alternate; }
+    100% { background-color: $background-color; }
+}
+
+@keyframes colorchange-font {
+    0% { color: $background-color;}
+    50% { color: $background-color-alternate; }
+    100% { color: $background-color; }
+}
